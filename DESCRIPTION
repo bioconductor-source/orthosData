@@ -22,7 +22,8 @@ Imports:
     ExperimentHub,
     HDF5Array,
     SummarizedExperiment,
-    AnnotationHub
+    AnnotationHub,
+    utils
 URL: https://github.com/fmicompbio/orthosData
 BugReports: https://github.com/fmicompbio/orthosData/issues
 VignetteBuilder: knitr
