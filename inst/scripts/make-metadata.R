@@ -167,7 +167,7 @@ df <- dplyr::bind_rows(
 )
 
 write.csv(
-    filelist,
+    df,
     file = "../extdata/metadata.csv",
     row.names = FALSE
 )
