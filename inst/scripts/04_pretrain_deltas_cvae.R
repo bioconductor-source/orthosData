@@ -174,6 +174,7 @@ gc()
 #### Model definition and compilation ####
 ##########################################
 
+
 ######## Define the cvae model:
 ngenes <- ncol(train_x)
 if (tensorflow::tf$executing_eagerly())

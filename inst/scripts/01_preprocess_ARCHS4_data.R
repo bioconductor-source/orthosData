@@ -96,18 +96,8 @@ se <- SummarizedExperiment(assays=SimpleList(counts=t(exp )),
                            checkDimnames=TRUE)
 
 if (!file.exists("mouse_matrix_v212_237Kx20K_se.rds")) {
-saveRDS(se,"mouse_matrix_v212_237Kx20K_se.rds")
+    saveRDS(se,"mouse_matrix_v212_237Kx20K_se.rds")
 }
-
-
-
-
-
-
-
-
-
-
 
 
 
