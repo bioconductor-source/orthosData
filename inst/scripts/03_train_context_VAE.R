@@ -44,7 +44,7 @@ gc()
 ngenes <- ncol(train_x)
 if (tensorflow::tf$executing_eagerly())
     tensorflow::tf$compat$v1$disable_eager_execution()
-source("context_VAE.R")
+source("models/context_VAE.R")
 
 
 ### VAE loss function:
