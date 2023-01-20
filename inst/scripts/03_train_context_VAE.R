@@ -44,7 +44,7 @@ gc()
 ngenes <- ncol(train_x)
 if (tensorflow::tf$executing_eagerly())
     tensorflow::tf$compat$v1$disable_eager_execution()
-source(context_VAE.R)
+source("context_VAE.R")
 
 
 ### VAE loss function:
@@ -128,7 +128,7 @@ history <- vae %>% fit(
     callbacks = list( early_stopping, lr_sch,checkpoint )
 )
 
-#saveRDS(history,"Trained_models/history_vae_deJUNKER_lcpm_ARCHS_v212_64_mouse.rds")
+#saveRDS(history,"Trained_models/history_vae_lcpm_ARCHS_v212_64_mouse.rds")
 vae %>% load_model_weights_hdf5("TRAINED_MODELS/vae_lcpm_ARCHS_v212_64_mouse.hdf5")
 save_model_hdf5(encoder,"TRAINED_MODELS/ContextEncoder_ARCHS_v212_64_mouse.hdf5")
 
