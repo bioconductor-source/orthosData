@@ -44,13 +44,14 @@ ensDF$gene_name[nchar(ensDF$gene_name) < 2] <- ensDF$gene_id[nchar(ensDF$gene_na
 ensDF$symbol[nchar(ensDF$symbol) < 2] <- ensDF$gene_id[nchar(ensDF$symbol) < 2]
 
 ##### Remove pseudogenes, ribosomal protein genes, genes from non-canonical chromosomes
-#Mouse:
+### Mouse:
 pseudog <- grep("pseudo",ensDF$gene_biotype)
 noncanon <- unique(c(grep("GL",ensDF$seqnames),grep("JH",ensDF$seqnames),grep("MT",ensDF$seqnames)))
 rpgenes <- grep("^M*rp[sl]",ensDF$symbol)
 removeg <- unique(c(pseudog, noncanon, rpgenes))
 
-#Human:
+### Human:
+#pseudog <- grep("pseudo",ensDF$gene_biotype)
 #noncanon <- unique(c(grep("CHR",ensDF$seqnames),grep("GL",ensDF$seqnames),grep("KI",ensDF$seqnames),
 #                     grep("LRG",ensDF$seqnames),grep("MT",ensDF$seqnames)))
 #rpgenes <- grep("^M*RP[SL]",ensDF$symbol)
@@ -61,7 +62,6 @@ ensDF <- ensDF[-removeg,]
 ensDF <- ensDF[!duplicated(ensDF$symbol),]
 keep.genes <- genesDF$gene_symbol %in%  ensDF$gene_id | genesDF$gene_symbol %in%  ensDF$symbol 
 exp <- exp[,keep.genes]
-
 
 
 
