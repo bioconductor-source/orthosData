@@ -7,8 +7,8 @@ library(AnnotationHub)
 
 
 ## h5 files downloaded from: https://maayanlab.cloud/archs4/download.html :
-## wget https://s3.dev.maayanlab.cloud/archs4/archs4_gene_mouse_v2.1.2.h5
-## wget https://s3.dev.maayanlab.cloud/archs4/archs4_gene_human_v2.1.2.h5
+## wget https://s3.dev.maayanlab.cloud/archs4/archs4_gene_mouse_v2.1.2.h5 #Mouse
+## wget https://s3.dev.maayanlab.cloud/archs4/archs4_gene_human_v2.1.2.h5 #Human
 h5_file <-"archs4_gene_mouse_v2.1.2.h5"
 
 
@@ -37,16 +37,26 @@ rownames(exp) <- samplesDF$geo_accession[select.samples]
 
 ##### Retrieve Ensdb gene annotation for the ARCHS4 Ensembl version used:
 ah <- AnnotationHub()
-ENS <- query(ah, c("EnsDb.Mmusculus.v107"))
+ENS <- query(ah, c("EnsDb.Mmusculus.v107")) # Mouse
+#ENS <- query(ah, c("EnsDb.Hsapiens.v107")) # Human
 ensDF <- as.data.frame(genes(ENS[[1]]))
 ensDF$gene_name[nchar(ensDF$gene_name) < 2] <- ensDF$gene_id[nchar(ensDF$gene_name) < 2]
 ensDF$symbol[nchar(ensDF$symbol) < 2] <- ensDF$gene_id[nchar(ensDF$symbol) < 2]
 
 ##### Remove pseudogenes, ribosomal protein genes, genes from non-canonical chromosomes
+#Mouse:
 pseudog <- grep("pseudo",ensDF$gene_biotype)
 noncanon <- unique(c(grep("GL",ensDF$seqnames),grep("JH",ensDF$seqnames),grep("MT",ensDF$seqnames)))
 rpgenes <- grep("^M*rp[sl]",ensDF$symbol)
 removeg <- unique(c(pseudog, noncanon, rpgenes))
+
+#Human:
+#noncanon <- unique(c(grep("CHR",ensDF$seqnames),grep("GL",ensDF$seqnames),grep("KI",ensDF$seqnames),
+#                     grep("LRG",ensDF$seqnames),grep("MT",ensDF$seqnames)))
+#rpgenes <- grep("^M*RP[SL]",ensDF$symbol)
+#LRGgenes <- grep("^LRG_",ensDF$gene_id)
+#removeg <- unique(c(pseudog, noncanon, rpgenes,LRGgenes))
+
 ensDF <- ensDF[-removeg,]
 ensDF <- ensDF[!duplicated(ensDF$symbol),]
 keep.genes <- genesDF$gene_symbol %in%  ensDF$gene_id | genesDF$gene_symbol %in%  ensDF$symbol 
