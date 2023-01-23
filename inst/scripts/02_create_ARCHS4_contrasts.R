@@ -1,4 +1,6 @@
-###### Store summarized experiments for different contrast collections:
+###### Identify and store contrasts.
+###### Store summarized experiments for different contrast collections
+
 library(SummarizedExperiment)
 
 se <- readRDS("mouse_matrix_v212_237Kx20K_se.rds")

@@ -1,4 +1,4 @@
-###### # Preprocess ARCHS4 gene files to filter data,annotate genes, identify and store contrasts.
+###### # Preprocess ARCHS4 gene files to filter data, annotate genes
 library(rhdf5) 
 library(Rfast) 
 library(SummarizedExperiment)
