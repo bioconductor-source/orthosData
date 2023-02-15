@@ -26,9 +26,9 @@ df <- dplyr::bind_rows(
         DataProvider = "Ma'ayan Laboratory (https://labs.icahn.mssm.edu/maayanlab/)",
         Maintainer = "Panagiotis Papasaikas <panagiotis.papasaikas@fmi.ch>",
         RDataClass = "keras.engine.functional.Functional",
-        DispatchClass = "keras::load_model_hdf5; require keras", ## AnnotationHub::DispatchClassList()
-        Location_Prefix = "",
-        RDataPath = "TRAINED_MODELS/ContextEncoder_ARCHS4_v212_Mouse"
+        DispatchClass = "kerasHDF5Model", ## AnnotationHub::DispatchClassList()
+        Location_Prefix = "https://zenodo.org/record/xxxxxx/files/",
+        RDataPath = "ContextEncoder_ARCHS4_v212_Mouse.hdf5"
     ),
     ## Human Context Encoder
     data.frame(
@@ -45,9 +45,9 @@ df <- dplyr::bind_rows(
         DataProvider = "Ma'ayan Laboratory (https://labs.icahn.mssm.edu/maayanlab/)",
         Maintainer = "Panagiotis Papasaikas <panagiotis.papasaikas@fmi.ch>",
         RDataClass = "keras.engine.functional.Functional",
-        DispatchClass = "keras::load_model_hdf5; require keras", ## AnnotationHub::DispatchClassList()
-        Location_Prefix = "",
-        RDataPath = "TRAINED_MODELS/ContextEncoder_ARCHS4_v212_Mouse"
+        DispatchClass = "kerasHDF5Model", ## AnnotationHub::DispatchClassList()
+        Location_Prefix = "https://zenodo.org/record/xxxxxx/files/",
+        RDataPath = "ContextEncoder_ARCHS4_v212_Human.hdf5"
     ),
     ## Mouse Contrast Encoder
     data.frame(
@@ -64,11 +64,11 @@ df <- dplyr::bind_rows(
         DataProvider = "Ma'ayan Laboratory (https://labs.icahn.mssm.edu/maayanlab/)",
         Maintainer = "Panagiotis Papasaikas <panagiotis.papasaikas@fmi.ch>",
         RDataClass = "keras.engine.functional.Functional",
-        DispatchClass = "keras::load_model_hdf5; require keras", ## AnnotationHub::DispatchClassList()
-        Location_Prefix = "",
-        RDataPath = "TRAINED_MODELS/DeltaEncoder_FT_ARCHS4_v212_Mouse"
+        DispatchClass = "kerasHDF5Model", ## AnnotationHub::DispatchClassList()
+        Location_Prefix = "https://zenodo.org/record/xxxxxx/files/",
+        RDataPath = "DeltaEncoder_FT_ARCHS4_v212_Mouse.hdf5"
     ),
-    ## Human Context Encoder
+    ## Human Contrast Encoder
     data.frame(
         Title = "DeltaEncoder_Human",
         Description = "Contrast (gene lcpm deltas i.e LFCs) encoder of human contrast experiments compiled from ARCHS4",
@@ -83,9 +83,9 @@ df <- dplyr::bind_rows(
         DataProvider = "Ma'ayan Laboratory (https://labs.icahn.mssm.edu/maayanlab/)",
         Maintainer = "Panagiotis Papasaikas <panagiotis.papasaikas@fmi.ch>",
         RDataClass = "keras.engine.functional.Functional",
-        DispatchClass = "keras::load_model_hdf5; require keras", ## AnnotationHub::DispatchClassList()
-        Location_Prefix = "",
-        RDataPath = "TRAINED_MODELS/DeltaEncoder_FT_ARCHS4_v212_Human"
+        DispatchClass = "kerasHDF5Model", ## AnnotationHub::DispatchClassList()
+        Location_Prefix = "https://zenodo.org/record/xxxxxx/files/",
+        RDataPath = "DeltaEncoder_FT_ARCHS4_v212_Human.hdf5"
     ),
     ## Mouse Contrast Decoder
     data.frame(
@@ -102,11 +102,11 @@ df <- dplyr::bind_rows(
         DataProvider = "Ma'ayan Laboratory (https://labs.icahn.mssm.edu/maayanlab/)",
         Maintainer = "Panagiotis Papasaikas <panagiotis.papasaikas@fmi.ch>",
         RDataClass = "keras.engine.functional.Functional",
-        DispatchClass = "keras::load_model_hdf5; require keras", ## AnnotationHub::DispatchClassList()
-        Location_Prefix = "",
-        RDataPath = "TRAINED_MODELS/DeltaDecoder_FT_ARCHS4_v212_Mouse"
+        DispatchClass = "kerasHDF5Model", ## AnnotationHub::DispatchClassList()
+        Location_Prefix = "https://zenodo.org/record/xxxxxx/files/",
+        RDataPath = "DeltaDecoder_FT_ARCHS4_v212_Mouse.hdf5"
     ),
-    ## Human Context Encoder
+    ## Human Contrast Decoder
     data.frame(
         Title = "DeltaDecoder_Human",
         Description = "Contrast (gene lcpm deltas i.e LFCs) decoder of human contrast experiments compiled from ARCHS4",
@@ -121,18 +121,18 @@ df <- dplyr::bind_rows(
         DataProvider = "Ma'ayan Laboratory (https://labs.icahn.mssm.edu/maayanlab/)",
         Maintainer = "Panagiotis Papasaikas <panagiotis.papasaikas@fmi.ch>",
         RDataClass = "keras.engine.functional.Functional",
-        DispatchClass = "keras::load_model_hdf5; require keras", ## AnnotationHub::DispatchClassList()
-        Location_Prefix = "",
-        RDataPath = "TRAINED_MODELS/DeltaDecoder_FT_ARCHS4_v212_Human"
+        DispatchClass = "kerasHDF5Model", ## AnnotationHub::DispatchClassList()
+        Location_Prefix = "https://zenodo.org/record/xxxxxx/files/",
+        RDataPath = "DeltaDecoder_FT_ARCHS4_v212_Human.hdf5"
     ),
     
-    ## Mouse ContrastDB Summarized Experiment
+    ## Full Mouse ContrastDB Summarized Experiment hdf5 representation
     data.frame(
-        Title = "decomposed_contrasts_mouse",
-        Description = "HDF5-based SummarizedExperiment with full and decomposed mouse contrast experiments compiled from ARCHS4 and associated metadata",
+        Title = "decomposed_contrasts_mouse_hdf5",
+        Description = "HDF5 file with assays for the full and decomposed mouse contrast experiments compiled from ARCHS4. Ngenes x 100 column blocks.",
         BiocVersion = "3.17",
         Genome = "GRCm39",
-        SourceType = "tar",  ## check AnnotationHubData::getValidSourceTypes()
+        SourceType = "HDF5",  ## check AnnotationHubData::getValidSourceTypes()
         SourceUrl = "https://maayanlab.cloud/archs4/",
         SourceVersion = "ARCHS4 v2.1.2",  ## ARCHS4 version
         Species = "Mus musculus",
@@ -140,18 +140,37 @@ df <- dplyr::bind_rows(
         Coordinate_1_based = NA,
         DataProvider = "Ma'ayan Laboratory (https://labs.icahn.mssm.edu/maayanlab/)",
         Maintainer = "Panagiotis Papasaikas <panagiotis.papasaikas@fmi.ch>",
-        RDataClass = "keras.engine.functional.Functional",
-        DispatchClass = "HDF5Array::loadHDF5SummarizedExperiment; require HDF5Array", ## AnnotationHub::DispatchClassList()
-        Location_Prefix = "",
-        RDataPath = "DECOMPOSED_CONTRASTS/mouse_v212_c100se.tar"
+        RDataClass = "character",
+        DispatchClass = "H5File", ## AnnotationHub::DispatchClassList()
+        Location_Prefix = "https://zenodo.org/record/xxxxxx/files/",
+        RDataPath = "mouse_v212_NDF_c100assays.h5"
     ),
-    ## Human ContrastDB Summarized Experiment
     data.frame(
-        Title = "decomposed_contrasts_human",
-        Description = "HDF5-based SummarizedExperiment with full and decomposed human contrast experiments compiled from ARCHS4 and associated metadata",
+        Title = "decomposed_contrasts_mouse_rds",
+        Description = "Serialized version of decomposed_contrasts_mouse_hdf5 with row and column metadata for the assays",
+        BiocVersion = "3.17",
+        Genome = "GRCm39",
+        SourceType = "HDF5",  ## check AnnotationHubData::getValidSourceTypes()
+        SourceUrl = "https://maayanlab.cloud/archs4/",
+        SourceVersion = "ARCHS4 v2.1.2",  ## ARCHS4 version
+        Species = "Mus musculus",
+        TaxonomyId = "10090",
+        Coordinate_1_based = NA,
+        DataProvider = "Ma'ayan Laboratory (https://labs.icahn.mssm.edu/maayanlab/)",
+        Maintainer = "Panagiotis Papasaikas <panagiotis.papasaikas@fmi.ch>",
+        RDataClass = "character",
+        DispatchClass = "Rds", ## AnnotationHub::DispatchClassList()
+        Location_Prefix = "https://zenodo.org/record/xxxxxx/files/",
+        RDataPath = "mouse_v212_NDF_c100se.rds"
+    ),
+    
+    ## Fill Human ContrastDB Summarized Experiment hdf5 representation
+    data.frame(
+        Title = "decomposed_contrasts_human_hdf5",
+        Description = "HDF5 file with assays for the full and decomposed human contrast experiments compiled from ARCHS4. Ngenes x 100 column blocks.",
         BiocVersion = "3.17",
         Genome = "GRCh38",
-        SourceType = "tar",  ## check AnnotationHubData::getValidSourceTypes()
+        SourceType = "HDF5",  ## check AnnotationHubData::getValidSourceTypes()
         SourceUrl = "https://maayanlab.cloud/archs4/",
         SourceVersion = "ARCHS4 v2.1.2",  ## ARCHS4 version
         Species = "Homo sapiens",
@@ -159,10 +178,104 @@ df <- dplyr::bind_rows(
         Coordinate_1_based = NA,
         DataProvider = "Ma'ayan Laboratory (https://labs.icahn.mssm.edu/maayanlab/)",
         Maintainer = "Panagiotis Papasaikas <panagiotis.papasaikas@fmi.ch>",
-        RDataClass = "keras.engine.functional.Functional",
-        DispatchClass = "HDF5Array::loadHDF5SummarizedExperiment; require HDF5Array", ## AnnotationHub::DispatchClassList()
-        Location_Prefix = "",
-        RDataPath = "DECOMPOSED_CONTRASTS/human_v212_c100se.tar"
+        RDataClass = "character",
+        DispatchClass = "H5File", ## AnnotationHub::DispatchClassList()
+        Location_Prefix = "https://zenodo.org/record/xxxxxx/files/",
+        RDataPath = "human_v212_NDF_c100assays.h5"
+    ),
+    data.frame(
+        Title = "decomposed_contrasts_human_rds",
+        Description = "Serialized version of tdecomposed_contrasts_human_hdf5 with row and column metadata for the assays",
+        BiocVersion = "3.17",
+        Genome = "GRCh38",
+        SourceType = "HDF5",  ## check AnnotationHubData::getValidSourceTypes()
+        SourceUrl = "https://maayanlab.cloud/archs4/",
+        SourceVersion = "ARCHS4 v2.1.2",  ## ARCHS4 version
+        Species = "Homo sapiens",
+        TaxonomyId = "9606",
+        Coordinate_1_based = NA,
+        DataProvider = "Ma'ayan Laboratory (https://labs.icahn.mssm.edu/maayanlab/)",
+        Maintainer = "Panagiotis Papasaikas <panagiotis.papasaikas@fmi.ch>",
+        RDataClass = "character",
+        DispatchClass = "Rds", ## AnnotationHub::DispatchClassList()
+        Location_Prefix = "https://zenodo.org/record/xxxxxx/files/",
+        RDataPath = "human_v212_NDF_c100se.rds"
+    ),
+    
+    ## "Toy" Mouse ContrastDB Summarized Experiment hdf5 representation
+    data.frame(
+        Title = "demo_decomposed_contrasts_mouse_hdf5",
+        Description = "A heavily subsampled version of decomposed_contrasts_mouse_hdf5 used for demo purposes",
+        BiocVersion = "3.17",
+        Genome = "GRCm39",
+        SourceType = "HDF5",  ## check AnnotationHubData::getValidSourceTypes()
+        SourceUrl = "https://maayanlab.cloud/archs4/",
+        SourceVersion = "ARCHS4 v2.1.2",  ## ARCHS4 version
+        Species = "Mus musculus",
+        TaxonomyId = "10090",
+        Coordinate_1_based = NA,
+        DataProvider = "Ma'ayan Laboratory (https://labs.icahn.mssm.edu/maayanlab/)",
+        Maintainer = "Panagiotis Papasaikas <panagiotis.papasaikas@fmi.ch>",
+        RDataClass = "character",
+        DispatchClass = "H5File", ## AnnotationHub::DispatchClassList()
+        Location_Prefix = "https://zenodo.org/record/xxxxxx/files/",
+        RDataPath = "mouse_v212_NDF_c100_DEMOassays.h5"
+    ),
+    data.frame(
+        Title = "demo_decomposed_contrasts_mouse_rds",
+        Description = "Serialized version of demo_decomposed_contrasts_mouse_hdf5 with row and column metadata",
+        BiocVersion = "3.17",
+        Genome = "GRCm39",
+        SourceType = "HDF5",  ## check AnnotationHubData::getValidSourceTypes()
+        SourceUrl = "https://maayanlab.cloud/archs4/",
+        SourceVersion = "ARCHS4 v2.1.2",  ## ARCHS4 version
+        Species = "Mus musculus",
+        TaxonomyId = "10090",
+        Coordinate_1_based = NA,
+        DataProvider = "Ma'ayan Laboratory (https://labs.icahn.mssm.edu/maayanlab/)",
+        Maintainer = "Panagiotis Papasaikas <panagiotis.papasaikas@fmi.ch>",
+        RDataClass = "character",
+        DispatchClass = "Rds", ## AnnotationHub::DispatchClassList()
+        Location_Prefix = "https://zenodo.org/record/xxxxxx/files/",
+        RDataPath = "mouse_v212_NDF_c100_DEMOse.rds"
+    ),
+    
+    ## "Toy" Human ContrastDB Summarized Experiment hdf5 representation
+    data.frame(
+        Title = "demo_decomposed_contrasts_human_hdf5",
+        Description = "A heavily subsampled version of decomposed_contrasts_human_hdf5 used for demo purposes",
+        BiocVersion = "3.17",
+        Genome = "GRCh38",
+        SourceType = "HDF5",  ## check AnnotationHubData::getValidSourceTypes()
+        SourceUrl = "https://maayanlab.cloud/archs4/",
+        SourceVersion = "ARCHS4 v2.1.2",  ## ARCHS4 version
+        Species = "Homo sapiens",
+        TaxonomyId = "9606",
+        Coordinate_1_based = NA,
+        DataProvider = "Ma'ayan Laboratory (https://labs.icahn.mssm.edu/maayanlab/)",
+        Maintainer = "Panagiotis Papasaikas <panagiotis.papasaikas@fmi.ch>",
+        RDataClass = "character",
+        DispatchClass = "H5File", ## AnnotationHub::DispatchClassList()
+        Location_Prefix = "https://zenodo.org/record/xxxxxx/files/",
+        RDataPath = "human_v212_NDF_c100_DEMOassays.h5"
+    ),
+    data.frame(
+        Title = "demo_decomposed_contrasts_human_rds",
+        Description = "Serialized version of demo_decomposed_contrasts_human_hdf5 with row and column metadata",
+        BiocVersion = "3.17",
+        Genome = "GRCh38",
+        SourceType = "HDF5",  ## check AnnotationHubData::getValidSourceTypes()
+        SourceUrl = "https://maayanlab.cloud/archs4/",
+        SourceVersion = "ARCHS4 v2.1.2",  ## ARCHS4 version
+        Species = "Homo sapiens",
+        TaxonomyId = "9606",
+        Coordinate_1_based = NA,
+        DataProvider = "Ma'ayan Laboratory (https://labs.icahn.mssm.edu/maayanlab/)",
+        Maintainer = "Panagiotis Papasaikas <panagiotis.papasaikas@fmi.ch>",
+        RDataClass = "character",
+        DispatchClass = "Rds", ## AnnotationHub::DispatchClassList()
+        Location_Prefix = "https://zenodo.org/record/xxxxxx/files/",
+        RDataPath = "human_v212_NDF_c100_DEMOse.rds"
     )
 )
 
@@ -171,3 +284,4 @@ write.csv(
     file = "../extdata/metadata.csv",
     row.names = FALSE
 )
+
