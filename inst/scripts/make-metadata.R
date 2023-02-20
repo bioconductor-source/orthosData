@@ -15,7 +15,7 @@ df <- dplyr::bind_rows(
     data.frame(
         Title = "Weights_ContextVAE_Mouse",
         Description = "Weights for the full context (gene lcpms) VAE of mouse contrast experiments compiled from ARCHS4",
-        Tags="RNASeqData,DifferentialExpression,NeuralNetwork",
+        Tags="RNASeqData,ExpressionData,DifferentialExpression,NeuralNetwork",
         BiocVersion = "3.17",
         Genome = "GRCm39",
         SourceType = "HDF5",  ## check AnnotationHubData::getValidSourceTypes()
@@ -35,7 +35,7 @@ df <- dplyr::bind_rows(
     data.frame(
         Title = "Weights_ContextVAE_Human",
         Description = "Weights for the full context (gene lcpms) VAE of human contrast experiments compiled from ARCHS4",
-        Tags="RNASeqData,DifferentialExpression,NeuralNetwork",
+        Tags="RNASeqData,ExpressionData,DifferentialExpression,NeuralNetwork",
         BiocVersion = "3.17",
         Genome = "GRCh38",
         SourceType = "HDF5",  ## check AnnotationHubData::getValidSourceTypes()
@@ -55,7 +55,7 @@ df <- dplyr::bind_rows(
     data.frame(
         Title = "Weights_DeltaCVAE_Mouse",
         Description = "Weights for the full contrast (gene lcpm deltas i.e LFCs) conditional VAE of mouse contrast experiments compiled from ARCHS4",
-        Tags="RNASeqData,DifferentialExpression,NeuralNetwork",
+        Tags="RNASeqData,ExpressionData,DifferentialExpression,NeuralNetwork",
         BiocVersion = "3.17",
         Genome = "GRCm39",
         SourceType = "HDF5",  ## check AnnotationHubData::getValidSourceTypes()
@@ -75,7 +75,7 @@ df <- dplyr::bind_rows(
     data.frame(
         Title = "Weights_DeltaCVAE_Human",
         Description = "Weights for the full contrast (gene lcpm deltas i.e LFCs) conditional VAE of human contrast experiments compiled from ARCHS4",
-        Tags="RNASeqData,DifferentialExpression,NeuralNetwork",
+        Tags="RNASeqData,ExpressionData,DifferentialExpression,NeuralNetwork",
         BiocVersion = "3.17",
         Genome = "GRCh38",
         SourceType = "HDF5",  ## check AnnotationHubData::getValidSourceTypes()
@@ -95,7 +95,7 @@ df <- dplyr::bind_rows(
     data.frame(
         Title = "ContextEncoder_Mouse",
         Description = "Context (gene lcpms) encoder of mouse contrast experiments compiled from ARCHS4",
-        Tags="RNASeqData,DifferentialExpression,NeuralNetwork",
+        Tags="RNASeqData,ExpressionData,DifferentialExpression,NeuralNetwork",
         BiocVersion = "3.17",
         Genome = "GRCm39",
         SourceType = "HDF5",  ## check AnnotationHubData::getValidSourceTypes()
@@ -115,7 +115,7 @@ df <- dplyr::bind_rows(
     data.frame(
         Title = "ContextEncoder_Human",
         Description = "Context (gene lcpms) encoder of human contrast experiments compiled from ARCHS4",
-        Tags="RNASeqData,DifferentialExpression,NeuralNetwork",
+        Tags="RNASeqData,ExpressionData,DifferentialExpression,NeuralNetwork",
         BiocVersion = "3.17",
         Genome = "GRCh38",
         SourceType = "HDF5",  ## check AnnotationHubData::getValidSourceTypes()
@@ -135,7 +135,7 @@ df <- dplyr::bind_rows(
     data.frame(
         Title = "DeltaEncoder_Mouse",
         Description = "Contrast (gene lcpm deltas i.e LFCs) encoder of mouse contrast experiments compiled from ARCHS4",
-        Tags="RNASeqData,DifferentialExpression,NeuralNetwork",
+        Tags="RNASeqData,ExpressionData,DifferentialExpression,NeuralNetwork",
         BiocVersion = "3.17",
         Genome = "GRCm39",
         SourceType = "HDF5",  ## check AnnotationHubData::getValidSourceTypes()
@@ -155,7 +155,7 @@ df <- dplyr::bind_rows(
     data.frame(
         Title = "DeltaEncoder_Human",
         Description = "Contrast (gene lcpm deltas i.e LFCs) encoder of human contrast experiments compiled from ARCHS4",
-        Tags="RNASeqData,DifferentialExpression,NeuralNetwork",
+        Tags="RNASeqData,ExpressionData,DifferentialExpression,NeuralNetwork",
         BiocVersion = "3.17",
         Genome = "GRCh38",
         SourceType = "HDF5",  ## check AnnotationHubData::getValidSourceTypes()
@@ -175,7 +175,7 @@ df <- dplyr::bind_rows(
     data.frame(
         Title = "DeltaDecoder_Mouse",
         Description = "Contrast (gene lcpm deltas i.e LFCs) decoder of mouse contrast experiments compiled from ARCHS4",
-        Tags="RNASeqData,DifferentialExpression,NeuralNetwork",
+        Tags="RNASeqData,ExpressionData,DifferentialExpression,NeuralNetwork",
         BiocVersion = "3.17",
         Genome = "GRCm39",
         SourceType = "HDF5",  ## check AnnotationHubData::getValidSourceTypes()
@@ -195,7 +195,7 @@ df <- dplyr::bind_rows(
     data.frame(
         Title = "DeltaDecoder_Human",
         Description = "Contrast (gene lcpm deltas i.e LFCs) decoder of human contrast experiments compiled from ARCHS4",
-        Tags="RNASeqData,DifferentialExpression,NeuralNetwork",
+        Tags="RNASeqData,ExpressionData,DifferentialExpression,NeuralNetwork",
         BiocVersion = "3.17",
         Genome = "GRCh38",
         SourceType = "HDF5",  ## check AnnotationHubData::getValidSourceTypes()
@@ -216,7 +216,7 @@ df <- dplyr::bind_rows(
     data.frame(
         Title = "decomposed_contrasts_mouse_hdf5",
         Description = "HDF5 file with assays for the full and decomposed mouse contrast experiments compiled from ARCHS4. Ngenes x 100 column blocks.",
-        Tags="RNASeqData,DifferentialExpression,NeuralNetwork",
+        Tags="RNASeqData,ExpressionData,DifferentialExpression,NeuralNetwork",
         BiocVersion = "3.17",
         Genome = "GRCm39",
         SourceType = "HDF5",  ## check AnnotationHubData::getValidSourceTypes()
@@ -235,7 +235,7 @@ df <- dplyr::bind_rows(
     data.frame(
         Title = "decomposed_contrasts_mouse_rds",
         Description = "Serialized version of decomposed_contrasts_mouse_hdf5 with row and column metadata for the assays",
-        Tags="RNASeqData,DifferentialExpression,NeuralNetwork",
+        Tags="RNASeqData,ExpressionData,DifferentialExpression,NeuralNetwork",
         BiocVersion = "3.17",
         Genome = "GRCm39",
         SourceType = "HDF5",  ## check AnnotationHubData::getValidSourceTypes()
@@ -256,7 +256,7 @@ df <- dplyr::bind_rows(
     data.frame(
         Title = "decomposed_contrasts_human_hdf5",
         Description = "HDF5 file with assays for the full and decomposed human contrast experiments compiled from ARCHS4. Ngenes x 100 column blocks.",
-        Tags="RNASeqData,DifferentialExpression,NeuralNetwork",
+        Tags="RNASeqData,ExpressionData,DifferentialExpression,NeuralNetwork",
         BiocVersion = "3.17",
         Genome = "GRCh38",
         SourceType = "HDF5",  ## check AnnotationHubData::getValidSourceTypes()
@@ -275,7 +275,7 @@ df <- dplyr::bind_rows(
     data.frame(
         Title = "decomposed_contrasts_human_rds",
         Description = "Serialized version of tdecomposed_contrasts_human_hdf5 with row and column metadata for the assays",
-        Tags="RNASeqData,DifferentialExpression,NeuralNetwork",
+        Tags="RNASeqData,ExpressionData,DifferentialExpression,NeuralNetwork",
         BiocVersion = "3.17",
         Genome = "GRCh38",
         SourceType = "HDF5",  ## check AnnotationHubData::getValidSourceTypes()
@@ -296,7 +296,7 @@ df <- dplyr::bind_rows(
     data.frame(
         Title = "demo_decomposed_contrasts_mouse_hdf5",
         Description = "A heavily subsampled version of decomposed_contrasts_mouse_hdf5 used for demo purposes",
-        Tags="RNASeqData,DifferentialExpression,NeuralNetwork",
+        Tags="RNASeqData,ExpressionData,DifferentialExpression,NeuralNetwork",
         BiocVersion = "3.17",
         Genome = "GRCm39",
         SourceType = "HDF5",  ## check AnnotationHubData::getValidSourceTypes()
@@ -315,7 +315,7 @@ df <- dplyr::bind_rows(
     data.frame(
         Title = "demo_decomposed_contrasts_mouse_rds",
         Description = "Serialized version of demo_decomposed_contrasts_mouse_hdf5 with row and column metadata",
-        Tags="RNASeqData,DifferentialExpression,NeuralNetwork",
+        Tags="RNASeqData,ExpressionData,DifferentialExpression,NeuralNetwork",
         BiocVersion = "3.17",
         Genome = "GRCm39",
         SourceType = "HDF5",  ## check AnnotationHubData::getValidSourceTypes()
@@ -336,7 +336,7 @@ df <- dplyr::bind_rows(
     data.frame(
         Title = "demo_decomposed_contrasts_human_hdf5",
         Description = "A heavily subsampled version of decomposed_contrasts_human_hdf5 used for demo purposes",
-        Tags="RNASeqData,DifferentialExpression,NeuralNetwork",
+        Tags="RNASeqData,ExpressionData,DifferentialExpression,NeuralNetwork",
         BiocVersion = "3.17",
         Genome = "GRCh38",
         SourceType = "HDF5",  ## check AnnotationHubData::getValidSourceTypes()
@@ -355,7 +355,7 @@ df <- dplyr::bind_rows(
     data.frame(
         Title = "demo_decomposed_contrasts_human_rds",
         Description = "Serialized version of demo_decomposed_contrasts_human_hdf5 with row and column metadata",
-        Tags="RNASeqData,DifferentialExpression,NeuralNetwork",
+        Tags="RNASeqData,ExpressionData,DifferentialExpression,NeuralNetwork",
         BiocVersion = "3.17",
         Genome = "GRCh38",
         SourceType = "HDF5",  ## check AnnotationHubData::getValidSourceTypes()
