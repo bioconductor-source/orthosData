@@ -11,6 +11,82 @@ suppressPackageStartupMessages({
 })
 
 df <- dplyr::bind_rows(
+    ## Mouse Context VAE weights
+    data.frame(
+        Title = "Weights_ContextVAE_Mouse",
+        Description = "Weights for the full context (gene lcpms) VAE of mouse contrast experiments compiled from ARCHS4",
+        BiocVersion = "3.17",
+        Genome = "GRCm39",
+        SourceType = "HDF5",  ## check AnnotationHubData::getValidSourceTypes()
+        SourceUrl = "https://maayanlab.cloud/archs4/",
+        SourceVersion = "ARCHS4 v2.1.2",  ## ARCHS4 version
+        Species = "Mus musculus",
+        TaxonomyId = "10090",
+        Coordinate_1_based = NA,
+        DataProvider = "Ma'ayan Laboratory (https://labs.icahn.mssm.edu/maayanlab/)",
+        Maintainer = "Panagiotis Papasaikas <panagiotis.papasaikas@fmi.ch>",
+        RDataClass = "character",
+        DispatchClass = "kerasHDF5ModelWeights", ## AnnotationHub::DispatchClassList()
+        Location_Prefix = "https://zenodo.org/record/7554915/files/",
+        RDataPath = "ContextVAE_ARCHS4_v212_Mouse.weights.hdf5"
+    ),
+    ## Ηuman Context VAE weights
+    data.frame(
+        Title = "Weights_ContextVAE_Human",
+        Description = "Weights for the full context (gene lcpms) VAE of human contrast experiments compiled from ARCHS4",
+        BiocVersion = "3.17",
+        Genome = "GRCh38",
+        SourceType = "HDF5",  ## check AnnotationHubData::getValidSourceTypes()
+        SourceUrl = "https://maayanlab.cloud/archs4/",
+        SourceVersion = "ARCHS4 v2.1.2",  ## ARCHS4 version
+        Species = "Homo sapiens",
+        TaxonomyId = "9609",
+        Coordinate_1_based = NA,
+        DataProvider = "Ma'ayan Laboratory (https://labs.icahn.mssm.edu/maayanlab/)",
+        Maintainer = "Panagiotis Papasaikas <panagiotis.papasaikas@fmi.ch>",
+        RDataClass = "character",
+        DispatchClass = "kerasHDF5ModelWeights", ## AnnotationHub::DispatchClassList()
+        Location_Prefix = "https://zenodo.org/record/7554915/files/",
+        RDataPath = "ContextVAE_ARCHS4_v212_Human.weights.hdf5"
+    ),
+    ## Mouse Delta cVAE weights
+    data.frame(
+        Title = "Weights_DeltaCVAE_Mouse",
+        Description = "Weights for the full contrast (gene lcpm deltas i.e LFCs) conditional VAE of mouse contrast experiments compiled from ARCHS4",
+        BiocVersion = "3.17",
+        Genome = "GRCm39",
+        SourceType = "HDF5",  ## check AnnotationHubData::getValidSourceTypes()
+        SourceUrl = "https://maayanlab.cloud/archs4/",
+        SourceVersion = "ARCHS4 v2.1.2",  ## ARCHS4 version
+        Species = "Mus musculus",
+        TaxonomyId = "10090",
+        Coordinate_1_based = NA,
+        DataProvider = "Ma'ayan Laboratory (https://labs.icahn.mssm.edu/maayanlab/)",
+        Maintainer = "Panagiotis Papasaikas <panagiotis.papasaikas@fmi.ch>",
+        RDataClass = "character",
+        DispatchClass = "kerasHDF5ModelWeights", ## AnnotationHub::DispatchClassList()
+        Location_Prefix = "https://zenodo.org/record/7554915/files/",
+        RDataPath = "DeltaCVAE_FT_ARCHS4_v212_Mouse.weights.hdf5"
+    ),
+    ## Ηuman Delta cVAE weights
+    data.frame(
+        Title = "Weights_DeltaCVAE_Human",
+        Description = "Weights for the full contrast (gene lcpm deltas i.e LFCs) conditional VAE of human contrast experiments compiled from ARCHS4",
+        BiocVersion = "3.17",
+        Genome = "GRCh38",
+        SourceType = "HDF5",  ## check AnnotationHubData::getValidSourceTypes()
+        SourceUrl = "https://maayanlab.cloud/archs4/",
+        SourceVersion = "ARCHS4 v2.1.2",  ## ARCHS4 version
+        Species = "Homo sapiens",
+        TaxonomyId = "9609",
+        Coordinate_1_based = NA,
+        DataProvider = "Ma'ayan Laboratory (https://labs.icahn.mssm.edu/maayanlab/)",
+        Maintainer = "Panagiotis Papasaikas <panagiotis.papasaikas@fmi.ch>",
+        RDataClass = "character",
+        DispatchClass = "kerasHDF5ModelWeights", ## AnnotationHub::DispatchClassList()
+        Location_Prefix = "https://zenodo.org/record/7554915/files/",
+        RDataPath = "DeltaCVAE_FT_ARCHS4_v212_Human.weights.hdf5"
+    ),
     ## Mouse Context Encoder
     data.frame(
         Title = "ContextEncoder_Mouse",
@@ -27,7 +103,7 @@ df <- dplyr::bind_rows(
         Maintainer = "Panagiotis Papasaikas <panagiotis.papasaikas@fmi.ch>",
         RDataClass = "keras.engine.functional.Functional",
         DispatchClass = "kerasHDF5Model", ## AnnotationHub::DispatchClassList()
-        Location_Prefix = "https://zenodo.org/record/xxxxxx/files/",
+        Location_Prefix = "https://zenodo.org/record/7554915/files/",
         RDataPath = "ContextEncoder_ARCHS4_v212_Mouse.hdf5"
     ),
     ## Human Context Encoder
@@ -46,7 +122,7 @@ df <- dplyr::bind_rows(
         Maintainer = "Panagiotis Papasaikas <panagiotis.papasaikas@fmi.ch>",
         RDataClass = "keras.engine.functional.Functional",
         DispatchClass = "kerasHDF5Model", ## AnnotationHub::DispatchClassList()
-        Location_Prefix = "https://zenodo.org/record/xxxxxx/files/",
+        Location_Prefix = "https://zenodo.org/record/7554915/files/",
         RDataPath = "ContextEncoder_ARCHS4_v212_Human.hdf5"
     ),
     ## Mouse Contrast Encoder
@@ -65,7 +141,7 @@ df <- dplyr::bind_rows(
         Maintainer = "Panagiotis Papasaikas <panagiotis.papasaikas@fmi.ch>",
         RDataClass = "keras.engine.functional.Functional",
         DispatchClass = "kerasHDF5Model", ## AnnotationHub::DispatchClassList()
-        Location_Prefix = "https://zenodo.org/record/xxxxxx/files/",
+        Location_Prefix = "https://zenodo.org/record/7554915/files/",
         RDataPath = "DeltaEncoder_FT_ARCHS4_v212_Mouse.hdf5"
     ),
     ## Human Contrast Encoder
@@ -84,7 +160,7 @@ df <- dplyr::bind_rows(
         Maintainer = "Panagiotis Papasaikas <panagiotis.papasaikas@fmi.ch>",
         RDataClass = "keras.engine.functional.Functional",
         DispatchClass = "kerasHDF5Model", ## AnnotationHub::DispatchClassList()
-        Location_Prefix = "https://zenodo.org/record/xxxxxx/files/",
+        Location_Prefix = "https://zenodo.org/record/7554915/files/",
         RDataPath = "DeltaEncoder_FT_ARCHS4_v212_Human.hdf5"
     ),
     ## Mouse Contrast Decoder
@@ -103,7 +179,7 @@ df <- dplyr::bind_rows(
         Maintainer = "Panagiotis Papasaikas <panagiotis.papasaikas@fmi.ch>",
         RDataClass = "keras.engine.functional.Functional",
         DispatchClass = "kerasHDF5Model", ## AnnotationHub::DispatchClassList()
-        Location_Prefix = "https://zenodo.org/record/xxxxxx/files/",
+        Location_Prefix = "https://zenodo.org/record/7554915/files/",
         RDataPath = "DeltaDecoder_FT_ARCHS4_v212_Mouse.hdf5"
     ),
     ## Human Contrast Decoder
@@ -122,7 +198,7 @@ df <- dplyr::bind_rows(
         Maintainer = "Panagiotis Papasaikas <panagiotis.papasaikas@fmi.ch>",
         RDataClass = "keras.engine.functional.Functional",
         DispatchClass = "kerasHDF5Model", ## AnnotationHub::DispatchClassList()
-        Location_Prefix = "https://zenodo.org/record/xxxxxx/files/",
+        Location_Prefix = "https://zenodo.org/record/7554915/files/",
         RDataPath = "DeltaDecoder_FT_ARCHS4_v212_Human.hdf5"
     ),
     
@@ -142,7 +218,7 @@ df <- dplyr::bind_rows(
         Maintainer = "Panagiotis Papasaikas <panagiotis.papasaikas@fmi.ch>",
         RDataClass = "character",
         DispatchClass = "H5File", ## AnnotationHub::DispatchClassList()
-        Location_Prefix = "https://zenodo.org/record/xxxxxx/files/",
+        Location_Prefix = "https://zenodo.org/record/7554915/files/",
         RDataPath = "mouse_v212_NDF_c100assays.h5"
     ),
     data.frame(
@@ -160,7 +236,7 @@ df <- dplyr::bind_rows(
         Maintainer = "Panagiotis Papasaikas <panagiotis.papasaikas@fmi.ch>",
         RDataClass = "character",
         DispatchClass = "Rds", ## AnnotationHub::DispatchClassList()
-        Location_Prefix = "https://zenodo.org/record/xxxxxx/files/",
+        Location_Prefix = "https://zenodo.org/record/7554915/files/",
         RDataPath = "mouse_v212_NDF_c100se.rds"
     ),
     
@@ -180,7 +256,7 @@ df <- dplyr::bind_rows(
         Maintainer = "Panagiotis Papasaikas <panagiotis.papasaikas@fmi.ch>",
         RDataClass = "character",
         DispatchClass = "H5File", ## AnnotationHub::DispatchClassList()
-        Location_Prefix = "https://zenodo.org/record/xxxxxx/files/",
+        Location_Prefix = "https://zenodo.org/record/7554915/files/",
         RDataPath = "human_v212_NDF_c100assays.h5"
     ),
     data.frame(
@@ -198,7 +274,7 @@ df <- dplyr::bind_rows(
         Maintainer = "Panagiotis Papasaikas <panagiotis.papasaikas@fmi.ch>",
         RDataClass = "character",
         DispatchClass = "Rds", ## AnnotationHub::DispatchClassList()
-        Location_Prefix = "https://zenodo.org/record/xxxxxx/files/",
+        Location_Prefix = "https://zenodo.org/record/7554915/files/",
         RDataPath = "human_v212_NDF_c100se.rds"
     ),
     
@@ -218,7 +294,7 @@ df <- dplyr::bind_rows(
         Maintainer = "Panagiotis Papasaikas <panagiotis.papasaikas@fmi.ch>",
         RDataClass = "character",
         DispatchClass = "H5File", ## AnnotationHub::DispatchClassList()
-        Location_Prefix = "https://zenodo.org/record/xxxxxx/files/",
+        Location_Prefix = "https://zenodo.org/record/7554915/files/",
         RDataPath = "mouse_v212_NDF_c100_DEMOassays.h5"
     ),
     data.frame(
@@ -236,7 +312,7 @@ df <- dplyr::bind_rows(
         Maintainer = "Panagiotis Papasaikas <panagiotis.papasaikas@fmi.ch>",
         RDataClass = "character",
         DispatchClass = "Rds", ## AnnotationHub::DispatchClassList()
-        Location_Prefix = "https://zenodo.org/record/xxxxxx/files/",
+        Location_Prefix = "https://zenodo.org/record/7554915/files/",
         RDataPath = "mouse_v212_NDF_c100_DEMOse.rds"
     ),
     
@@ -256,7 +332,7 @@ df <- dplyr::bind_rows(
         Maintainer = "Panagiotis Papasaikas <panagiotis.papasaikas@fmi.ch>",
         RDataClass = "character",
         DispatchClass = "H5File", ## AnnotationHub::DispatchClassList()
-        Location_Prefix = "https://zenodo.org/record/xxxxxx/files/",
+        Location_Prefix = "https://zenodo.org/record/7554915/files/",
         RDataPath = "human_v212_NDF_c100_DEMOassays.h5"
     ),
     data.frame(
@@ -274,7 +350,7 @@ df <- dplyr::bind_rows(
         Maintainer = "Panagiotis Papasaikas <panagiotis.papasaikas@fmi.ch>",
         RDataClass = "character",
         DispatchClass = "Rds", ## AnnotationHub::DispatchClassList()
-        Location_Prefix = "https://zenodo.org/record/xxxxxx/files/",
+        Location_Prefix = "https://zenodo.org/record/7554915/files/",
         RDataPath = "human_v212_NDF_c100_DEMOse.rds"
     )
 )
