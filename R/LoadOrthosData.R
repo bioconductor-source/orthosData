@@ -69,6 +69,7 @@
 #' @author Panagiotis Papasaikas
 #'
 #' @importFrom AnnotationHub query hubUrl getInfoOnIds
+#' @importFrom ExperimentHub ExperimentHub
 #' @importFrom stringr str_extract
 #' 
 #' @examples
@@ -134,7 +135,7 @@ GetorthosContrastDB <- function(organism = c("Human","Mouse"),
 
 #' Cache orthosData models
 #'
-#' Download in cache orthosData a set of keras models from ExperimentHub.
+#' Download in cache a set of orthosData keras models from ExperimentHub.
 #'
 #' @param organism Character scalar selecting the organism for which to load the
 #'     contrast database. One of \code{"Human"} or \code{"Mouse"}.
@@ -145,15 +146,15 @@ GetorthosContrastDB <- function(organism = c("Human","Mouse"),
 #' @author Panagiotis Papasaikas
 #'
 #' @importFrom AnnotationHub query hubUrl getInfoOnIds
+#' @importFrom ExperimentHub ExperimentHub
 #' @importFrom stringr str_extract
 #' 
 GetorthosModels <- function(organism = c("Human","Mouse"),
-                                mode = c("ANALYSIS", "DEMO"),
                                 ARCHS4v = "v212",
                                 verbose=TRUE)
 {
     organism <- tolower(match.arg(organism))
-    hub <- ExperimentHub()
+    hub <- ExperimentHub::ExperimentHub()
     
     ## Model info from ExperimentHub:
     query_keys <- c( "coder",organism, "ARCHS4", ARCHS4v   )
