@@ -123,7 +123,7 @@ GetorthosModels <- function(organism = c("Human","Mouse"),
             ans <- BiocFileCache::bfcdownload(bfc, res$rid[1])
         }
     }
-    
+return(ans)  
 }
 
 
