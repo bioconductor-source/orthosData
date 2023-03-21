@@ -94,7 +94,7 @@ GetorthosModels <- function(organism = c("Human","Mouse"),
 .addToCache <- function(cache_path=Sys.getenv("EXPERIMENT_HUB_CACHE"),
                         url="",
                         rname="",
-                        fname=c("unique", "exact")) {
+                        fname=c("exact","unique")) {
     
     bfc <- BiocFileCache::BiocFileCache(cache_path)
     
@@ -117,12 +117,11 @@ GetorthosModels <- function(organism = c("Human","Mouse"),
         # check can be NA if it cannot be determined, choose how to handle
         if (is.na(check)) check <- TRUE
         if (check){
-            if (verbose) {
                 message(paste("updating resource", ans, collapse = "\n"))
-            }
             ans <- BiocFileCache::bfcdownload(bfc, res$rid[1])
         }
     }
+ans <- paste( head(unlist(strsplit(ans,"/",)),-1), collapse = "/" )
 return(ans)  
 }
 
@@ -228,13 +227,14 @@ GetorthosContrastDB <- function(organism = c("Human","Mouse"),
         fetch_url <- paste0( hubUrl,"/fetch/", fetch_id)
         fetch_url_real <- stringr::str_extract(grep(curlGetHeaders(fetch_url), pattern = "Location", value = T), pattern = "http.*") # resolve redirects
         if(verbose){
-            .addToCache(url=fetch_url_real,rname=title)
+            cache_dir <- .addToCache(url=fetch_url_real,rname=title)
         }
         else{
             suppressMessages({
-                .addToCache(url=fetch_url_real,rname=title)    
+                cache_dir <- .addToCache(url=fetch_url_real,rname=title)    
             })
         }
+cache_dir        
 }
 
 
