@@ -121,6 +121,7 @@ GetorthosModels <- function(organism = c("Human","Mouse"),
             ans <- BiocFileCache::bfcdownload(bfc, res$rid[1])
         }
     }
+# Return caching directory
 ans <- paste( head(unlist(strsplit(ans,"/",)),-1), collapse = "/" )
 return(ans)  
 }
