@@ -235,7 +235,6 @@ GetorthosContrastDB <- function(organism = c("Human","Mouse"),
                 .addToCache(url=fetch_url_real,rname=title)    
             })
         }
-
 }
 
 
