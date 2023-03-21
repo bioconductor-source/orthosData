@@ -96,6 +96,7 @@ GetorthosModels <- function(organism = c("Human","Mouse"),
                         rname="",
                         fname=c("exact","unique")) {
     
+    fname <- match.arg(fname)
     bfc <- BiocFileCache::BiocFileCache(cache_path)
     
     # check if url is being tracked
