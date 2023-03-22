@@ -10,7 +10,7 @@
 #' \strong{ContextEncoder}: The encoder component of a Variational Autoencoder (VAE).
 #' Used to  produce a latent encoding of a given gene expression profile (i.e context). 
 #' 
-#' - Input is a gene counts vector (shape=N, where N is the number or `orthos` gene features)
+#' - Input is a gene expression vector (shape=N, where N is the number or `orthos` gene features)
 #'  in the form of log2-transformed library normalized counts (log2 counts per million, log2CPMs). 
 #' 
 #' - Output is a 64-d latent representation of the context.
@@ -19,8 +19,8 @@
 #' 
 #' Used to produce a latent encoding of a contrast between two conditions (i.e delta).
 #' 
-#' - Input is a vector of gene expression contrasts (shape=N) in the form of gene log2 CPM ratios (log2 fold changes, log2FCs), concatenated with the
-#' corresponding context encoding.
+#' - Input is a vector of gene expression contrasts (shape=N) in the form of gene log2 CPM ratios (log2 fold changes, log2FCs),
+#' concatenated with the corresponding context encoding.
 #' 
 #' - Output is a 512-d latent representation of the contrast, conditioned on the context.
 #' 
@@ -147,14 +147,14 @@ return(ans)
 #'  detected in at least a small fraction of the ARCHS4 database). 
 #' 
 #' The orthosData  contrast database contains assays with the original contrasts in the form of gene expression log2 CPM ratios (i.e log2 fold changes, log2FCs), 
-#' precalculated decoded and residual components of those contrasts using the orthosData models as well as 
-#' as the gene expression context of those contrasts in the form of log2-transformed library normalized counts (i.e log2 counts per million, log2CPMs).
-#' It also contains extensive annotation on both the orthos feature genes and the contrasted conditions.
+#' precalculated, decoded and residual components of those contrasts using the orthosData models as well as 
+#' the gene expression context of those contrasts in the form of log2-transformed library normalized counts (i.e log2 counts per million, log2CPMs).
+#' It also contains extensive annotation on both the `orthos` feature genes and the contrasted conditions.
 #' 
 #' For each organism the DB is stored as an HDF5SummarizedExperiment with an HDF5 component that contains the gene assays
 #' and an rds component that contains gene annotation in the rowData and the contrast annotation in the colData.
 #' 
-#' Please note that because of the way that HDF5 datasets and serialized SummarizedExperiments are linked
+#' Note that because of the way that HDF5 datasets and serialized SummarizedExperiments are linked
 #' in an HDF5SummarizedExperiment, the two components -although relocatable- need to have the exact same filenames 
 #' as those used at creation time. In other words the files can be moved (or copied) to a different directory 
 #' or to a different machine and they will retain functionality as long as both live in the same directory and are never renamed.
