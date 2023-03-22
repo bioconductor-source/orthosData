@@ -42,6 +42,7 @@
 #' @param verbose Logical scalar indicating whether to print messages along
 #'     the way.
 #'
+#' @export
 #' @author Panagiotis Papasaikas
 #'
 #' @importFrom AnnotationHub query hubUrl getInfoOnIds
@@ -170,6 +171,7 @@ return(ans)
 #' @param verbose Logical scalar indicating whether to print messages along
 #'     the way.
 #'
+#' @export
 #' @author Panagiotis Papasaikas
 #'
 #' @importFrom AnnotationHub query hubUrl getInfoOnIds

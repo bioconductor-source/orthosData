@@ -18,19 +18,19 @@ Description: This package provides data objects required for the models
 License: MIT + file LICENSE
 Encoding: UTF-8
 RoxygenNote: 7.2.3
-Imports: 
+Imports:
+    AnnotationHub,
     ExperimentHub,
     HDF5Array,
     SummarizedExperiment,
-    AnnotationHub,
     utils
 URL: https://github.com/fmicompbio/orthosData
 BugReports: https://github.com/fmicompbio/orthosData/issues
 VignetteBuilder: knitr
 biocViews: ExperimentData, RNASeqData, ExperimentHub
-Suggests: 
+Suggests:
+    BiocStyle,
     ggplot2,
-    testthat,
     knitr,
     rmarkdown,
-    BiocStyle
+    testthat
