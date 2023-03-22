@@ -124,7 +124,8 @@ GetorthosModels <- function(organism = c("Human","Mouse"),
         }
     }
 # Return caching directory
-ans <- paste( head(unlist(strsplit(ans,"/",)),-1), collapse = "/" )
+#ans <- paste( head(unlist(strsplit(ans,"/",)),-1), collapse = "/" )
+ans <- dirname(ans)
 return(ans)  
 }
 
