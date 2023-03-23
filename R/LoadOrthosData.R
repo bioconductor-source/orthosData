@@ -81,7 +81,7 @@ GetorthosModels <- function(organism = c("Human","Mouse"),
 #' Cache a web resource to a BiocFileCache location 
 #'
 #' Cache a web resource to a BiocFileCache location 
-#' typically at: \code{Sys.getenv("EXPERIMENT_HUB_CACHE")}.
+#' typically at: \code{ExperimentHub::getExperimentHubOption("CACHE")}.
 #'
 #' @param url url link of the resource file to be cached. 
 #' @param rname resource name
@@ -92,10 +92,12 @@ GetorthosModels <- function(organism = c("Human","Mouse"),
 #' @author Panagiotis Papasaikas
 #'
 #' @importFrom BiocFileCache BiocFileCache bfcquery bfccount bfcadd bfcneedsupdate bfcdownload
+#' @importFrom ExperimentHub getExperimentHubOption
+
 #'
 #' @keywords internal
 #' @noRd
-.addToCache <- function(cache_path=Sys.getenv("EXPERIMENT_HUB_CACHE"),
+.addToCache <- function(cache_path=ExperimentHub::getExperimentHubOption("CACHE"),
                         url="",
                         rname="",
                         fname=c("exact","unique")) {
@@ -179,14 +181,14 @@ return(ans)
 #' @author Panagiotis Papasaikas
 #'
 #' @importFrom AnnotationHub query hubUrl getInfoOnIds
-#' @importFrom ExperimentHub ExperimentHub
+#' @importFrom ExperimentHub ExperimentHub getExperimentHubOption
 #' @importFrom stringr str_extract
 #' 
 #' @examples
 #' \dontrun{
 #' GetorthosContrastDB(organism = "Mouse", mode="DEMO")
 #' 
-#' se <- HDF5Array::loadHDF5SummarizedExperiment(dir = Sys.getenv("EXPERIMENT_HUB_CACHE"),
+#' se <- HDF5Array::loadHDF5SummarizedExperiment(dir = ExperimentHub::getExperimentHubOption("CACHE"),
 #' prefix = "mouse_v212_NDF_c100_DEMO")
 #' 
 #' }
