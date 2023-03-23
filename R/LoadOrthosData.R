@@ -43,6 +43,7 @@
 #'     the way.
 #'
 #' @export
+#' 
 #' @author Panagiotis Papasaikas
 #'
 #' @importFrom AnnotationHub query hubUrl getInfoOnIds
@@ -86,6 +87,8 @@ GetorthosModels <- function(organism = c("Human","Mouse"),
 #' @param rname resource name
 #' @param fname Options are ‘unique’ or ‘exact’. See  \code{BiocFileCache}
 #'
+#' @return the \code{dirname} of the cached objects. 
+#' 
 #' @author Panagiotis Papasaikas
 #'
 #' @importFrom BiocFileCache BiocFileCache bfcquery bfccount bfcadd bfcneedsupdate bfcdownload
@@ -124,7 +127,6 @@ GetorthosModels <- function(organism = c("Human","Mouse"),
         }
     }
 # Return caching directory
-#ans <- paste( head(unlist(strsplit(ans,"/",)),-1), collapse = "/" )
 ans <- dirname(ans)
 return(ans)  
 }
@@ -172,6 +174,7 @@ return(ans)
 #' @param verbose Logical scalar indicating whether to print messages along
 #'     the way.
 #'
+#' @return the \code{dirname} of the cached objects. 
 #' @export
 #' @author Panagiotis Papasaikas
 #'
