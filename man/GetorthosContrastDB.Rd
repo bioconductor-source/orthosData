@@ -73,13 +73,11 @@ retain functionality as long as both live in the same directory and are
 never renamed.
 }
 \examples{
-\donttest{
 GetorthosContrastDB(organism = "Mouse", mode="DEMO")
 
 se <- HDF5Array::loadHDF5SummarizedExperiment(dir = ExperimentHub::getExperimentHubOption("CACHE"),
 prefix = "mouse_v212_NDF_c100_DEMO")
 
-}
 }
 \references{
 {

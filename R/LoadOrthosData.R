@@ -59,9 +59,9 @@
 #' @importFrom stringr str_extract
 #'
 #' @examples
-#' \donttest{
 #' GetorthosModels(organism = "Mouse")
-#' }
+#' 
+
 GetorthosModels <- function(organism = c("Human", "Mouse"),
                             ARCHS4v = "v212",
                             verbose = TRUE)
@@ -209,13 +209,11 @@ GetorthosModels <- function(organism = c("Human", "Mouse"),
 #' @importFrom stringr str_extract
 #'
 #' @examples
-#' \donttest{
 #' GetorthosContrastDB(organism = "Mouse", mode="DEMO")
 #'
 #' se <- HDF5Array::loadHDF5SummarizedExperiment(dir = ExperimentHub::getExperimentHubOption("CACHE"),
 #' prefix = "mouse_v212_NDF_c100_DEMO")
 #'
-#' }
 #' @references{
 #' *Lachmann, Alexander, et al.
 #' "Massive mining of publicly available RNA-seq data from human and mouse."

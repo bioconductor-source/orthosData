@@ -66,9 +66,8 @@ please refer to the `orthos` package vignette:
 vignette("orthosIntro", package = "orthos").
 }
 \examples{
-\donttest{
 GetorthosModels(organism = "Mouse")
-}
+
 }
 \author{
 Panagiotis Papasaikas
