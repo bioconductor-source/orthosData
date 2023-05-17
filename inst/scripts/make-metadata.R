@@ -28,7 +28,7 @@ df <- dplyr::bind_rows(
         Maintainer = "Panagiotis Papasaikas <panagiotis.papasaikas@fmi.ch>",
         RDataClass = "character",
         DispatchClass = "kerasHDF5ModelWeights", ## AnnotationHub::DispatchClassList()
-        Location_Prefix = "https://zenodo.org/record/7554915/files/",
+        Location_Prefix = "https://zenodo.org/record/7908269/files/",
         RDataPath = "ContextVAE_ARCHS4_v212_Mouse.weights.hdf5"
     ),
     ## Ηuman Context VAE weights
@@ -48,7 +48,7 @@ df <- dplyr::bind_rows(
         Maintainer = "Panagiotis Papasaikas <panagiotis.papasaikas@fmi.ch>",
         RDataClass = "character",
         DispatchClass = "kerasHDF5ModelWeights", ## AnnotationHub::DispatchClassList()
-        Location_Prefix = "https://zenodo.org/record/7554915/files/",
+        Location_Prefix = "https://zenodo.org/record/7908269/files/",
         RDataPath = "ContextVAE_ARCHS4_v212_Human.weights.hdf5"
     ),
     ## Mouse Delta cVAE weights
@@ -68,7 +68,7 @@ df <- dplyr::bind_rows(
         Maintainer = "Panagiotis Papasaikas <panagiotis.papasaikas@fmi.ch>",
         RDataClass = "character",
         DispatchClass = "kerasHDF5ModelWeights", ## AnnotationHub::DispatchClassList()
-        Location_Prefix = "https://zenodo.org/record/7554915/files/",
+        Location_Prefix = "https://zenodo.org/record/7908269/files/",
         RDataPath = "DeltaCVAE_FT_ARCHS4_v212_Mouse.weights.hdf5"
     ),
     ## Ηuman Delta cVAE weights
@@ -88,7 +88,7 @@ df <- dplyr::bind_rows(
         Maintainer = "Panagiotis Papasaikas <panagiotis.papasaikas@fmi.ch>",
         RDataClass = "character",
         DispatchClass = "kerasHDF5ModelWeights", ## AnnotationHub::DispatchClassList()
-        Location_Prefix = "https://zenodo.org/record/7554915/files/",
+        Location_Prefix = "https://zenodo.org/record/7908269/files/",
         RDataPath = "DeltaCVAE_FT_ARCHS4_v212_Human.weights.hdf5"
     ),
     ## Mouse Context Encoder
@@ -108,7 +108,7 @@ df <- dplyr::bind_rows(
         Maintainer = "Panagiotis Papasaikas <panagiotis.papasaikas@fmi.ch>",
         RDataClass = "keras.engine.functional.Functional",
         DispatchClass = "kerasHDF5Model", ## AnnotationHub::DispatchClassList()
-        Location_Prefix = "https://zenodo.org/record/7554915/files/",
+        Location_Prefix = "https://zenodo.org/record/7908269/files/",
         RDataPath = "ContextEncoder_ARCHS4_v212_Mouse.hdf5"
     ),
     ## Human Context Encoder
@@ -128,7 +128,7 @@ df <- dplyr::bind_rows(
         Maintainer = "Panagiotis Papasaikas <panagiotis.papasaikas@fmi.ch>",
         RDataClass = "keras.engine.functional.Functional",
         DispatchClass = "kerasHDF5Model", ## AnnotationHub::DispatchClassList()
-        Location_Prefix = "https://zenodo.org/record/7554915/files/",
+        Location_Prefix = "https://zenodo.org/record/7908269/files/",
         RDataPath = "ContextEncoder_ARCHS4_v212_Human.hdf5"
     ),
     ## Mouse Contrast Encoder
@@ -148,7 +148,7 @@ df <- dplyr::bind_rows(
         Maintainer = "Panagiotis Papasaikas <panagiotis.papasaikas@fmi.ch>",
         RDataClass = "keras.engine.functional.Functional",
         DispatchClass = "kerasHDF5Model", ## AnnotationHub::DispatchClassList()
-        Location_Prefix = "https://zenodo.org/record/7554915/files/",
+        Location_Prefix = "https://zenodo.org/record/7908269/files/",
         RDataPath = "DeltaEncoder_FT_ARCHS4_v212_Mouse.hdf5"
     ),
     ## Human Contrast Encoder
@@ -168,7 +168,7 @@ df <- dplyr::bind_rows(
         Maintainer = "Panagiotis Papasaikas <panagiotis.papasaikas@fmi.ch>",
         RDataClass = "keras.engine.functional.Functional",
         DispatchClass = "kerasHDF5Model", ## AnnotationHub::DispatchClassList()
-        Location_Prefix = "https://zenodo.org/record/7554915/files/",
+        Location_Prefix = "https://zenodo.org/record/7908269/files/",
         RDataPath = "DeltaEncoder_FT_ARCHS4_v212_Human.hdf5"
     ),
     ## Mouse Contrast Decoder
@@ -188,7 +188,7 @@ df <- dplyr::bind_rows(
         Maintainer = "Panagiotis Papasaikas <panagiotis.papasaikas@fmi.ch>",
         RDataClass = "keras.engine.functional.Functional",
         DispatchClass = "kerasHDF5Model", ## AnnotationHub::DispatchClassList()
-        Location_Prefix = "https://zenodo.org/record/7554915/files/",
+        Location_Prefix = "https://zenodo.org/record/7908269/files/",
         RDataPath = "DeltaDecoder_FT_ARCHS4_v212_Mouse.hdf5"
     ),
     ## Human Contrast Decoder
@@ -208,7 +208,7 @@ df <- dplyr::bind_rows(
         Maintainer = "Panagiotis Papasaikas <panagiotis.papasaikas@fmi.ch>",
         RDataClass = "keras.engine.functional.Functional",
         DispatchClass = "kerasHDF5Model", ## AnnotationHub::DispatchClassList()
-        Location_Prefix = "https://zenodo.org/record/7554915/files/",
+        Location_Prefix = "https://zenodo.org/record/7908269/files/",
         RDataPath = "DeltaDecoder_FT_ARCHS4_v212_Human.hdf5"
     ),
     
@@ -229,7 +229,7 @@ df <- dplyr::bind_rows(
         Maintainer = "Panagiotis Papasaikas <panagiotis.papasaikas@fmi.ch>",
         RDataClass = "character",
         DispatchClass = "H5File", ## AnnotationHub::DispatchClassList()
-        Location_Prefix = "https://zenodo.org/record/7554915/files/",
+        Location_Prefix = "https://zenodo.org/record/7908269/files/",
         RDataPath = "mouse_v212_NDF_c100assays.h5"
     ),
     data.frame(
@@ -248,7 +248,7 @@ df <- dplyr::bind_rows(
         Maintainer = "Panagiotis Papasaikas <panagiotis.papasaikas@fmi.ch>",
         RDataClass = "character",
         DispatchClass = "Rds", ## AnnotationHub::DispatchClassList()
-        Location_Prefix = "https://zenodo.org/record/7554915/files/",
+        Location_Prefix = "https://zenodo.org/record/7908269/files/",
         RDataPath = "mouse_v212_NDF_c100se.rds"
     ),
     
@@ -269,7 +269,7 @@ df <- dplyr::bind_rows(
         Maintainer = "Panagiotis Papasaikas <panagiotis.papasaikas@fmi.ch>",
         RDataClass = "character",
         DispatchClass = "H5File", ## AnnotationHub::DispatchClassList()
-        Location_Prefix = "https://zenodo.org/record/7554915/files/",
+        Location_Prefix = "https://zenodo.org/record/7908269/files/",
         RDataPath = "human_v212_NDF_c100assays.h5"
     ),
     data.frame(
@@ -288,7 +288,7 @@ df <- dplyr::bind_rows(
         Maintainer = "Panagiotis Papasaikas <panagiotis.papasaikas@fmi.ch>",
         RDataClass = "character",
         DispatchClass = "Rds", ## AnnotationHub::DispatchClassList()
-        Location_Prefix = "https://zenodo.org/record/7554915/files/",
+        Location_Prefix = "https://zenodo.org/record/7908269/files/",
         RDataPath = "human_v212_NDF_c100se.rds"
     ),
     
@@ -309,7 +309,7 @@ df <- dplyr::bind_rows(
         Maintainer = "Panagiotis Papasaikas <panagiotis.papasaikas@fmi.ch>",
         RDataClass = "character",
         DispatchClass = "H5File", ## AnnotationHub::DispatchClassList()
-        Location_Prefix = "https://zenodo.org/record/7554915/files/",
+        Location_Prefix = "https://zenodo.org/record/7908269/files/",
         RDataPath = "mouse_v212_NDF_c100_DEMOassays.h5"
     ),
     data.frame(
@@ -328,7 +328,7 @@ df <- dplyr::bind_rows(
         Maintainer = "Panagiotis Papasaikas <panagiotis.papasaikas@fmi.ch>",
         RDataClass = "character",
         DispatchClass = "Rds", ## AnnotationHub::DispatchClassList()
-        Location_Prefix = "https://zenodo.org/record/7554915/files/",
+        Location_Prefix = "https://zenodo.org/record/7908269/files/",
         RDataPath = "mouse_v212_NDF_c100_DEMOse.rds"
     ),
     
@@ -349,7 +349,7 @@ df <- dplyr::bind_rows(
         Maintainer = "Panagiotis Papasaikas <panagiotis.papasaikas@fmi.ch>",
         RDataClass = "character",
         DispatchClass = "H5File", ## AnnotationHub::DispatchClassList()
-        Location_Prefix = "https://zenodo.org/record/7554915/files/",
+        Location_Prefix = "https://zenodo.org/record/7908269/files/",
         RDataPath = "human_v212_NDF_c100_DEMOassays.h5"
     ),
     data.frame(
@@ -368,7 +368,7 @@ df <- dplyr::bind_rows(
         Maintainer = "Panagiotis Papasaikas <panagiotis.papasaikas@fmi.ch>",
         RDataClass = "character",
         DispatchClass = "Rds", ## AnnotationHub::DispatchClassList()
-        Location_Prefix = "https://zenodo.org/record/7554915/files/",
+        Location_Prefix = "https://zenodo.org/record/7908269/files/",
         RDataPath = "human_v212_NDF_c100_DEMOse.rds"
     )
 )
