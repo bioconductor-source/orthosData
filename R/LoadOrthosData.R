@@ -205,6 +205,7 @@ GetorthosModels <- function(organism = c("Human", "Mouse"),
 #' @importFrom AnnotationHub query hubUrl getInfoOnIds
 #' @importFrom ExperimentHub ExperimentHub getExperimentHubOption
 #' @importFrom HDF5Array loadHDF5SummarizedExperiment
+#' @importFrom SummarizedExperiment SummarizedExperiment
 #' @importFrom stringr str_extract
 #'
 #' @examples
