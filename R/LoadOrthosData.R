@@ -68,11 +68,11 @@ GetorthosModels <- function(organism = c("Human", "Mouse"),
 {
     organism <- tolower(match.arg(organism))
     hub <- ExperimentHub::ExperimentHub()
-
+    
     ## Models info from ExperimentHub:
     query_keys <- c("orthosData", "coder", organism, "ARCHS4", ARCHS4v)
     hub_query_results <- AnnotationHub::query(hub, query_keys)
-
+    
     if (verbose) {
         message(paste("caching resources: ", hub_query_results$title,
                       collapse = "\n"))
@@ -110,13 +110,13 @@ GetorthosModels <- function(organism = c("Human", "Mouse"),
                         url = "",
                         rname = "",
                         fname = c("exact", "unique")) {
-
+    
     fname <- match.arg(fname)
     bfc <- BiocFileCache::BiocFileCache(cache_path)
-
+    
     # check if url is being tracked
     res <- BiocFileCache::bfcquery(bfc, url)
-
+    
     if (BiocFileCache::bfccount(res) == 0L) {
         # if not in cache, add it
         message(paste("Caching: ", rname, collapse = "\n"))
@@ -128,19 +128,19 @@ GetorthosModels <- function(organism = c("Human", "Mouse"),
         ans <- res$rpath[1]
         message(paste(rname," already present in cache at:", ans,
                       collapse = "\n"))
-
+        
         # check to see if the resource needs to be updated
         check <- BiocFileCache::bfcneedsupdate(bfc, res$rid[1])
         # check can be NA if it cannot be determined, choose how to handle
         if (is.na(check)) check <- TRUE
         if (check) {
-                message(paste("updating resource", ans, collapse = "\n"))
+            message(paste("updating resource", ans, collapse = "\n"))
             ans <- BiocFileCache::bfcdownload(bfc, res$rid[1])
         }
     }
-# Return caching directory
-ans <- dirname(ans)
-return(ans)
+    # Return caching directory
+    ans <- dirname(ans)
+    return(ans)
 }
 
 
@@ -204,6 +204,7 @@ return(ans)
 #'
 #' @importFrom AnnotationHub query hubUrl getInfoOnIds
 #' @importFrom ExperimentHub ExperimentHub getExperimentHubOption
+#' @importFrom HDF5Array loadHDF5SummarizedExperiment
 #' @importFrom stringr str_extract
 #'
 #' @examples
@@ -221,19 +222,19 @@ return(ans)
 #' }
 #'
 GetorthosContrastDB <- function(organism = c("Human", "Mouse"),
-                         mode = c("ANALYSIS", "DEMO"),
-                         ARCHS4v = "v212",
-                         verbose = TRUE)
+                                mode = c("ANALYSIS", "DEMO"),
+                                ARCHS4v = "v212",
+                                verbose = TRUE)
 {
     organism <- tolower(match.arg(organism))
     DEMO <- ifelse(mode == "DEMO", "_DEMO", "")
     hub <- ExperimentHub()
-
+    
     ## RDS info from ExperimentHub:
     rds_rdatapath <- paste0(organism, "_", ARCHS4v, "_NDF_c100", DEMO, "se.rds")
     rds_hubObj <- AnnotationHub::query(hub, c("orthosData", rds_rdatapath))
     hubUrl <- AnnotationHub::hubUrl(rds_hubObj)
-
+    
     info <- AnnotationHub::getInfoOnIds(rds_hubObj)
     title <- info$title
     fetch_id <- info$fetch_id
@@ -249,13 +250,13 @@ GetorthosContrastDB <- function(organism = c("Human", "Mouse"),
             .addToCache(url = fetch_url_real, rname = title)
         })
     }
-
-
+    
+    
     ## HDF5 info from ExperimentHub:
     h5_rdatapath <- paste0(organism, "_", ARCHS4v, "_NDF_c100", DEMO,
                            "assays.h5")
     h5_hubObj <- query(hub, c("orthosData", h5_rdatapath))
-
+    
     info <- AnnotationHub:::getInfoOnIds(h5_hubObj)
     title <- info$title
     fetch_id <- info$fetch_id
