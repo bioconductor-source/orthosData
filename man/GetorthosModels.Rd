@@ -19,6 +19,9 @@ the way.}
 
 \item{ARCH4v}{Version of ARCHS4 used to build the contrastDB.}
 }
+\value{
+A character vector with the full paths to the cached models
+}
 \description{
 Download in cache a set of orthosData keras models from ExperimentHub.
 }
@@ -63,7 +66,7 @@ please refer to the `orthos` package vignette:
 vignette("orthosIntro", package = "orthos").
 }
 \examples{
-\dontrun{
+\donttest{
 GetorthosModels(organism = "Mouse")
 }
 }
