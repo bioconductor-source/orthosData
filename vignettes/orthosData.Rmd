@@ -1,0 +1,203 @@
+---
+title: The orthosData package
+author: 
+- name: Panagiotis Papasaikas
+  affiliation: 
+  - &id3 Friedrich Miescher Institute for Biomedical Research, Basel, Switzerland
+  - SIB Swiss Institute of Bioinformatics
+  email: panagiotis.papasaikas@fmi.ch
+- name: Charlotte Soneson
+  affiliation: 
+  - &id3 Friedrich Miescher Institute for Biomedical Research, Basel, Switzerland
+  - SIB Swiss Institute of Bioinformatics
+  email: charlotte.soneson@fmi.ch
+- name: Michael Stadler
+  affiliation: 
+  - &id3 Friedrich Miescher Institute for Biomedical Research, Basel, Switzerland
+  - SIB Swiss Institute of Bioinformatics
+  email: michael.stadler@fmi.ch
+date: "`r BiocStyle::doc_date()`"
+package: "`r BiocStyle::pkg_ver('orthosData')`"
+output:
+  BiocStyle::html_document:
+    toc_float: true
+editor_options: 
+  chunk_output_type: console
+geometry: "left=0cm,right=3cm,top=2cm,bottom=2cm"
+vignette: >
+  %\VignetteIndexEntry{1. Introduction to orthos}
+  %\VignetteEncoding{UTF-8}
+  %\VignettePackage{orthosData}
+  %\VignetteKeywords{cVAE, VariationalAutoEncoders, DGE, DifferentialGeneExpression, RNASeq}    
+  %\VignetteEngine{knitr::rmarkdown}
+---
+
+
+```{r setup, include = FALSE, echo=FALSE, results="hide", message=FALSE}
+require(knitr)
+
+knitr::opts_chunk$set(
+    collapse = TRUE,
+    comment = "#>",
+    error = FALSE,
+    warning = FALSE,
+    message = FALSE,
+    crop = NULL
+)
+stopifnot(requireNamespace("htmltools"))
+htmltools::tagList(rmarkdown::html_dependency_font_awesome())
+
+```
+
+
+
+
+```{css, echo = FALSE}
+body {
+  margin: 0 auto;
+  max-width: 1600px;
+  padding: 2rem;
+}
+```
+
+
+
+# Introduction
+
+
+`orthosData`  is the companion database to the  `orthos` software for mechanistic studies
+using differential gene expression experiments.
+
+It currently encompasses data for over 100,000 differential gene expression mouse and human
+experiments distilled and compiled from the [ARCHS4](https://maayanlab.cloud/archs4/)
+database of uniformly processed RNAseq experiments as well as associated pre-trained variational models.
+
+Together with `orthos` it was developed  to provide a better understanding of the effects
+of experimental treatments on gene expression and to help map treatments to mechanisms of action.
+
+This vignette provides information on the `orhosData` functions for retrieval from `ExperimentHub`
+and local caching of the models and datasets used internally in `orthos`.
+
+For more information on usage of these models and datasets for analysis purposes please refer to
+the `orthos` package documentation.
+
+# Installation and overview
+
+`orthosData` is automatically installed as a dependency during `orthos` installation.
+`orthosData` can also be installed independently from Bioconductor using `BiocManager::install()`:
+
+
+```r
+if (!requireNamespace("BiocManager", quietly = TRUE))
+    install.packages("BiocManager")
+BiocManager::install("orthosData")
+# or also...
+BiocManager::install("orthosData", dependencies = TRUE)
+```
+
+After installation, the package can be loaded with:
+
+```{r library}
+library(orthosData)
+```
+
+
+
+# Caching orthosData models with `GetorthosModels()`
+
+
+`GetorthosModels()` is the function for local caching of orthosData Keras models for a given organism. 
+
+These are the models required to perform inference in `orthos`.
+
+For each organism they are of three types:
+
+
+* **ContextEncoder**: The encoder component of a context Variational Autoencoder (VAE).
+Used to  produce a latent encoding of a given gene expression profile (i.e context). 
+
+    + Input is a gene expression matrix (shape= M x N , where M is the number of condition and N is the number
+of `orthos` gene features) in the form of log2-transformed library normalized counts (log2 counts per million, log2CPMs). 
+
+    + Output is an  M x d (where d=64) latent representation of the context.
+
+
+* **DeltaEncoder**: The encoder component of a contrast conditional Variational Autoencoder (cVAE).
+Used to produce a latent encoding of a contrast between two conditions (i.e delta).
+
+    + Input is a matrix of gene expression contrasts (shape= M x N ) in the form of gene log2 CPM ratios (log2 fold changes, log2FCs),
+concatenated with the corresponding context encoding.
+
+    + Output is an  M x d (where d=512) latent representation of the contrast, conditioned on the context.
+
+
+* **DeltaDecoder**: The decoder component of the same cVAE as above. Used to produce the decoded version 
+of the contrast between two conditions.
+
+    + Input is the concatenated matrix (shape= M x (N+d) ) of the delta and context latent encodings.
+
+    + Output is the decoded contrast matrix (shape= M x N), conditioned on the context.
+
+For more details on model architecture and use of these models in `orthos` please refer to
+the `orthos` package vignette.
+
+ 
+When called for a specific organism, `GetorthosModels()` downloads the corresponding set of models
+required for inference from  `ExperimentHub` and caches them in the user ExperimentHub directory 
+(see `ExperimentHub::getExperimentHubOption("CACHE")`)
+
+```{r, eval=F, echo=T}
+# Check the path to the user's ExperimentHub directory:
+ExperimentHub::getExperimentHubOption("CACHE")
+# Download and cache the models for a specific organism:
+GetorthosModels(organism = "Mouse")
+
+```
+
+
+# Cache an orthosData contrast DB with `GetorthosContrastDB()`
+
+The orthosData  contrast database contains differential gene expression experiments
+compiled from the ARCHS4 database of publicly available expression data. 
+Each entry in the database corresponds to a pair of RNAseq samples contrasting a treatment versus a control condition. 
+A combination of metadata-semantic and quantitative analyses was used to
+determine the proper assignment of samples to such pairs in `orthosData`. 
+
+The database includes assays with the original contrasts in the form of gene expression log2 CPM ratios (i.e log2 fold changes, log2FCs), precalculated, decoded and residual components of those contrasts using the orthosData models as well as 
+the gene expression context of those contrasts in the form of log2-transformed library normalized counts (i.e log2 counts per million, log2CPMs).
+It also contains extensive annotation on both the `orthos` feature genes and the contrasted conditions.
+
+For each organism the DB has been compiled as an HDF5SummarizedExperiment with an HDF5 component that contains the gene assays
+and an rds component that contains gene annotation in the rowData and the contrast annotation in the colData.
+
+Note that because of the way that HDF5 datasets and serialized SummarizedExperiments are linked
+in an HDF5SummarizedExperiment, the two components -although relocatable- need to have the exact same filenames 
+as those used at creation time (see HDF5Array::saveHDF5SummarizedExperiment).
+In other words the files can be moved (or copied) to a different directory or to a different machine and they
+will retain functionality as long as both live in the same directory and are never renamed.
+
+
+When `GetorthosContrastDB()` is called for a specific organism the corresponding HDF5SummarizedExperiment is downloaded from 
+`ExperimentHub` and cached in the user ExperimentHub directory 
+(see `ExperimentHub::getExperimentHubOption("CACHE")`).
+
+```{r, eval=F, echo=T}
+# Check the path to the user's ExperimentHub directory:
+ExperimentHub::getExperimentHubOption("CACHE")
+
+# Download and cache the contrast database for a specific organism.
+# Note: mode="DEMO" caches a small "toy" database for the queries for demonstration purposes 
+# To download the full db use mode = "ANALYSIS" (this is time and space consuming)
+GetorthosContrastDB(organism = "Mouse", mode="DEMO")
+
+# Load the HDF5SummarizedExperiment: 
+se <- HDF5Array::loadHDF5SummarizedExperiment(dir = ExperimentHub::getExperimentHubOption("CACHE"),
+prefix = "mouse_v212_NDF_c100_DEMO")
+```
+
+# Session information {-}
+
+```{r}
+sessionInfo()
+```
+
