@@ -48,7 +48,8 @@
 #' @param ARCH4v Version of ARCHS4 used to build the contrastDB.
 #' @param verbose Logical scalar indicating whether to print messages along
 #'     the way.
-#'
+#'     
+#' @return A character vector with the full paths to the cached models
 #' @export
 #'
 #' @author Panagiotis Papasaikas
@@ -58,7 +59,7 @@
 #' @importFrom stringr str_extract
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' GetorthosModels(organism = "Mouse")
 #' }
 GetorthosModels <- function(organism = c("Human", "Mouse"),
@@ -206,7 +207,7 @@ return(ans)
 #' @importFrom stringr str_extract
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' GetorthosContrastDB(organism = "Mouse", mode="DEMO")
 #'
 #' se <- HDF5Array::loadHDF5SummarizedExperiment(dir = ExperimentHub::getExperimentHubOption("CACHE"),
