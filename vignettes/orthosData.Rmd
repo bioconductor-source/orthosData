@@ -70,7 +70,7 @@ using differential gene expression experiments.
 
 It currently encompasses data for over 100,000 differential gene expression mouse and human
 experiments distilled and compiled from the [ARCHS4](https://maayanlab.cloud/archs4/)
-database of uniformly processed RNAseq experiments as well as associated pre-trained variational models.
+database (Lachmann et al., 2018) of uniformly processed RNAseq experiments as well as associated pre-trained variational models.
 
 Together with `orthos` it was developed  to provide a better understanding of the effects
 of experimental treatments on gene expression and to help map treatments to mechanisms of action.
@@ -200,4 +200,8 @@ prefix = "mouse_v212_NDF_c100_DEMO")
 ```{r}
 sessionInfo()
 ```
+
+# References
+
+1. Lachmann, Alexander, et al. "Massive mining of publicly available RNA-seq data from human and mouse." Nature communications 9.1 (2018): 1366
 
