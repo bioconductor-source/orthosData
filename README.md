@@ -10,7 +10,7 @@ It currently encompasses data for over 100,000 differential gene expression mou
 Together with `orthos` it was developed  to provide a better understanding of the effects of experimental treatments on gene expression and to help map treatments to mechanisms of action.
 
 
-The data are hosted on [Zenodo, doi:10.5281/zenodo.7554915](https://zenodo.org/record/7554915/).
+The data are hosted on [Zenodo, doi:10.5281/zenodo.7908269](https://zenodo.org/record/7908269/).
 
 
 <a id="*">*</a> 
