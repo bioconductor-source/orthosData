@@ -9,8 +9,10 @@ It currently encompasses data for over 100,000 differential gene expression mou
 
 Together with `orthos` it was developed  to provide a better understanding of the effects of experimental treatments on gene expression and to help map treatments to mechanisms of action.
 
+All orthosData datasets are publicly available through [Zenodo, doi:10.5281/zenodo.7554914](https://zenodo.org/record/7554914/)
+according to open data standards and licenses under the [Creative Commons Attribution 4.0 International license (CC-BY 4.0)](https://creativecommons.org/licenses/by/4.0/).
 
-The data are hosted on [Zenodo, doi:10.5281/zenodo.7908269](https://zenodo.org/record/7908269/).
+
 
 
 <a id="*">*</a> 

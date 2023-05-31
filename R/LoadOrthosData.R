@@ -150,7 +150,8 @@ GetorthosModels <- function(organism = c("Human", "Mouse"),
 #' database from ExperimentHub.
 #' As these are components of a single HDF5SummarizedExperiment object they
 #' HAVE to be cached with the exact prefix used at creation time (see
-#' HDF5Array::saveHDF5SummarizedExperiment).
+#' \code{\link[HDF5Array:saveHDF5SummarizedExperiment]{HDF5Array::saveHDF5SummarizedExperiment}}
+#' )
 #'
 #' @details The orthosData  contrast database contains over 100,000
 #' differential gene expression experiments
@@ -174,7 +175,7 @@ GetorthosModels <- function(organism = c("Human", "Mouse"),
 #' (i.e log2 counts per million, log2CPMs).
 #' It also contains extensive annotation on both the `orthos` feature genes
 #' and the contrasted conditions.
-#'
+#' 
 #' For each organism the DB is stored as an HDF5SummarizedExperiment with an
 #' HDF5 component that contains the gene assays and an rds component that
 #' contains gene annotation in the rowData and the contrast annotation in the
@@ -187,6 +188,12 @@ GetorthosModels <- function(organism = c("Human", "Mouse"),
 #' copied) to a different directory or to a different machine and they will
 #' retain functionality as long as both live in the same directory and are
 #' never renamed.
+#' 
+#' All orthosData datasets are publicly available through
+#' \href{https://doi.org/10.5281/zenodo.7554914}{zenodo.org}
+#' according to open data standards and licenses under the 
+#' \href{https://creativecommons.org/licenses/by/4.0/}{Creative Commons Attribution 4.0 International license (CC-BY 4.0)}.
+#' 
 #'
 #' @param organism Character scalar selecting the organism for which to load the
 #'     contrast database. One of \code{"Human"} or \code{"Mouse"}.
@@ -213,6 +220,11 @@ GetorthosModels <- function(organism = c("Human", "Mouse"),
 #'
 #' se <- HDF5Array::loadHDF5SummarizedExperiment(dir = ExperimentHub::getExperimentHubOption("CACHE"),
 #' prefix = "mouse_v212_NDF_c100_DEMO")
+#' 
+#' @seealso
+#' \code{\link[HDF5Array:saveHDF5SummarizedExperiment]{HDF5Array::saveHDF5SummarizedExperiment}}
+#' 
+#' \href{https://doi.org/10.5281/zenodo.7554914}{https://doi.org/10.5281/zenodo.7554914}
 #'
 #' @references{
 #' *Lachmann, Alexander, et al.

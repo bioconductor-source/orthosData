@@ -33,7 +33,8 @@ Download in cache HDF5 and RDS component files for an othosData contrast
 database from ExperimentHub.
 As these are components of a single HDF5SummarizedExperiment object they
 HAVE to be cached with the exact prefix used at creation time (see
-HDF5Array::saveHDF5SummarizedExperiment).
+\code{\link[HDF5Array:saveHDF5SummarizedExperiment]{HDF5Array::saveHDF5SummarizedExperiment}}
+)
 }
 \details{
 The orthosData  contrast database contains over 100,000
@@ -71,6 +72,11 @@ as those used at creation time. In other words the files can be moved (or
 copied) to a different directory or to a different machine and they will
 retain functionality as long as both live in the same directory and are
 never renamed.
+
+All orthosData datasets are publicly available through
+\href{https://doi.org/10.5281/zenodo.7554914}{zenodo.org}
+according to open data standards and licenses under the 
+\href{https://creativecommons.org/licenses/by/4.0/}{Creative Commons Attribution 4.0 International license (CC-BY 4.0)}.
 }
 \examples{
 GetorthosContrastDB(organism = "Mouse", mode="DEMO")
@@ -85,6 +91,11 @@ prefix = "mouse_v212_NDF_c100_DEMO")
 "Massive mining of publicly available RNA-seq data from human and mouse."
  Nature communications 9.1 (2018): 1366
 }
+}
+\seealso{
+\code{\link[HDF5Array:saveHDF5SummarizedExperiment]{HDF5Array::saveHDF5SummarizedExperiment}}
+
+\href{https://doi.org/10.5281/zenodo.7554914}{https://doi.org/10.5281/zenodo.7554914}
 }
 \author{
 Panagiotis Papasaikas
