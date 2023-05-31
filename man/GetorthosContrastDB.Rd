@@ -20,10 +20,10 @@ cached. "DEMO" mode caches a small "toy" database for the queries.
 "DEMO" should only be used for testing/demonstration purposes
 and never for actual analysis purposes.}
 
+\item{ARCHS4v}{Version of ARCHS4 used to build the contrastDB.}
+
 \item{verbose}{Logical scalar indicating whether to print messages along
 the way.}
-
-\item{ARCH4v}{Version of ARCHS4 used to build the contrastDB.}
 }
 \value{
 the \code{dirname} of the cached objects.

@@ -45,7 +45,7 @@
 #'
 #' @param organism Character scalar selecting the organism for which to load the
 #'     contrast database. One of \code{"Human"} or \code{"Mouse"}.
-#' @param ARCH4v Version of ARCHS4 used to build the contrastDB.
+#' @param ARCHS4v Version of ARCHS4 used to build the contrastDB.
 #' @param verbose Logical scalar indicating whether to print messages along
 #'     the way.
 #'     
@@ -194,7 +194,7 @@ GetorthosModels <- function(organism = c("Human", "Mouse"),
 #'     cached. "DEMO" mode caches a small "toy" database for the queries.
 #'     "DEMO" should only be used for testing/demonstration purposes
 #'     and never for actual analysis purposes.
-#' @param ARCH4v Version of ARCHS4 used to build the contrastDB.
+#' @param ARCHS4v Version of ARCHS4 used to build the contrastDB.
 #' @param verbose Logical scalar indicating whether to print messages along
 #'     the way.
 #'

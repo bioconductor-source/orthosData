@@ -14,10 +14,10 @@ GetorthosModels(
 \item{organism}{Character scalar selecting the organism for which to load the
 contrast database. One of \code{"Human"} or \code{"Mouse"}.}
 
+\item{ARCHS4v}{Version of ARCHS4 used to build the contrastDB.}
+
 \item{verbose}{Logical scalar indicating whether to print messages along
 the way.}
-
-\item{ARCH4v}{Version of ARCHS4 used to build the contrastDB.}
 }
 \value{
 A character vector with the full paths to the cached models
