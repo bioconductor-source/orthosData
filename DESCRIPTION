@@ -1,7 +1,7 @@
 Package: orthosData
 Type: Package
 Title: Data for the orthos package
-Version: 0.99.3
+Version: 0.99.4
 Authors@R: c(person("Panagiotis", "Papasaikas", role = c("aut", "cre"), 
                     email="panagiotis.papasaikas@fmi.ch", 
                     comment = c(ORCID = "0000-0002-1640-7636")),
