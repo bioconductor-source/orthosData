@@ -1,6 +1,6 @@
 # orthosData 0.1.1
 
-* Addition of main package documentaion
+* Addition of main package documentation
 
 # orthosData 0.1.0
 
